@@ -40,8 +40,8 @@ main {
     width: 470px;
     height: 80%;
     display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     gap: 10px;
 }
 
@@ -50,6 +50,10 @@ main {
     border-radius: 15px;
     width: 150px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
 }
 
 footer {
