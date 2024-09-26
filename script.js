@@ -19,7 +19,7 @@ function colocarLetra(quadrado) {
 
     quadrado.textContent = jogadorAtual;
 
-    // funcao de checar o jogo pra ver o vencedor
+    checarJogo();
 
     if (jogadorAtual === "X") jogadorAtual = jogador2;
     else jogadorAtual = "X";
@@ -27,5 +27,11 @@ function colocarLetra(quadrado) {
 }
 
 function checarJogo() {
-    
+    checarTabuleiro(0, 1, 2);
+}
+
+function checarTabuleiro(a, b, c) {
+    if (quadrados[a].textContent === "X" && quadrados[b].textContent === "X" && quadrados[c].textContent === "X") {
+        alert("O jogador " + jogadorAtual + " é o vencedor!");
+    }
 }
