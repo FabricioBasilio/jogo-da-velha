@@ -20,14 +20,21 @@ function colocarLetra(quadrado) {
     }
 
     quadrado.textContent = jogadorAtual;
+
     preenchidos++;
 
     checarJogo();
-    
+
     if (!jogoAcabou) checarEmpate();
-    
-    if (jogadorAtual === "X") jogadorAtual = jogador2;
-    else jogadorAtual = "X";
+
+    if (jogadorAtual === "X") {
+        quadrado.classList.add("cor-letra-x");
+        jogadorAtual = jogador2;
+    }
+    else {
+        quadrado.classList.add("cor-letra-o");
+        jogadorAtual = "X";
+    }
 }
 
 function checarJogo() {

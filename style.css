@@ -56,6 +56,14 @@ main {
     font-size: 4rem;
 }
 
+.cor-letra-x {
+    color: var(--cor3);
+}
+
+.cor-letra-o {
+    color: var(--cor4);
+}
+
 footer {
     height: 10%;
     width: 100%;
