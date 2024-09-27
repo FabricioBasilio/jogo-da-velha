@@ -4,6 +4,8 @@ let jogadorAtual = "X";
 let jogador2 = "O";
 let vitoriasJogadorX = 0;
 let vitoriasJogadorO = 0;
+let preenchidos = 0;
+let jogoAcabou = false;
 
 for (let i = 0; i < quadrados.length; i++) quadrados[i].addEventListener("click", adicionarFuncao);
 
@@ -18,12 +20,14 @@ function colocarLetra(quadrado) {
     }
 
     quadrado.textContent = jogadorAtual;
+    preenchidos++;
 
     checarJogo();
-
+    
+    if (!jogoAcabou) checarEmpate();
+    
     if (jogadorAtual === "X") jogadorAtual = jogador2;
     else jogadorAtual = "X";
-    
 }
 
 function checarJogo() {
@@ -40,5 +44,10 @@ function checarJogo() {
 function checarTabuleiro(a, b, c) {
     if ((quadrados[a].textContent === "X" && quadrados[b].textContent === "X" && quadrados[c].textContent === "X") || (quadrados[a].textContent === "O" && quadrados[b].textContent === "O" && quadrados[c].textContent === "O")) {
         alert("O jogador " + jogadorAtual + " é o vencedor!");
+        jogoAcabou = true;
     }
+}
+
+function checarEmpate() {
+    if (preenchidos === 9) alert("Empate!");
 }
