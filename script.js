@@ -1,5 +1,8 @@
 const quadrados = document.getElementsByClassName("bloco");
 const tabelaJogo = document.querySelector(".jogo");
+const elementoMensagem = document.getElementById("mensagem");
+const elementoMensagemSpan = document.getElementById("mensagem-jogador");
+
 let jogadorAtual = "X";
 let jogador2 = "O";
 let vitoriasJogadorX = 0;
@@ -50,7 +53,10 @@ function checarJogo() {
 
 function checarTabuleiro(a, b, c) {
     if ((quadrados[a].textContent === "X" && quadrados[b].textContent === "X" && quadrados[c].textContent === "X") || (quadrados[a].textContent === "O" && quadrados[b].textContent === "O" && quadrados[c].textContent === "O")) {
-        alert("O jogador " + jogadorAtual + " é o vencedor!");
+        elementoMensagem.style.display = "block";
+        if (jogadorAtual === "X") elementoMensagemSpan.classList.add("cor-letra-x");
+        else elementoMensagemSpan.classList.add("cor-letra-o");
+        elementoMensagemSpan.textContent = jogadorAtual;
         jogoAcabou = true;
         removerEventos();
     }

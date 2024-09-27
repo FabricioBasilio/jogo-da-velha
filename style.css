@@ -32,7 +32,8 @@ header {
 main {
     height: 80%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -62,6 +63,11 @@ main {
 
 .cor-letra-o {
     color: var(--cor4);
+}
+
+#mensagem {
+    display: none;
+    color: var(--cor2);
 }
 
 footer {
