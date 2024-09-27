@@ -1,7 +1,8 @@
 const quadrados = document.getElementsByClassName("bloco");
 const tabelaJogo = document.querySelector(".jogo");
-const elementoMensagem = document.getElementById("mensagem");
-const elementoMensagemSpan = document.getElementById("mensagem-jogador");
+const elementoMensagem = document.querySelector(".mensagem");
+const elementoMensagemSpan = document.querySelector(".mensagem-jogador");
+const botaoReiniciar = document.querySelector(".botao-reiniciar");
 
 let jogadorAtual = "X";
 let jogador2 = "O";
@@ -23,6 +24,8 @@ function colocarLetra(quadrado) {
     }
 
     quadrado.textContent = jogadorAtual;
+
+    console.log(quadrado.textContent)
 
     preenchidos++;
 
@@ -53,11 +56,18 @@ function checarJogo() {
 
 function checarTabuleiro(a, b, c) {
     if ((quadrados[a].textContent === "X" && quadrados[b].textContent === "X" && quadrados[c].textContent === "X") || (quadrados[a].textContent === "O" && quadrados[b].textContent === "O" && quadrados[c].textContent === "O")) {
-        elementoMensagem.style.display = "block";
+
         if (jogadorAtual === "X") elementoMensagemSpan.classList.add("cor-letra-x");
         else elementoMensagemSpan.classList.add("cor-letra-o");
+
         elementoMensagemSpan.textContent = jogadorAtual;
+
+        elementoMensagem.classList.add("mostrar-na-tela");
+
+        botaoReiniciar.classList.add("mostrar-na-tela");
+
         jogoAcabou = true;
+
         removerEventos();
     }
 }
@@ -68,5 +78,4 @@ function checarEmpate() {
 
 function removerEventos() {
     for (let i = 0; i < quadrados.length; i++) quadrados[i].removeEventListener("click", adicionarFuncao);
-    alert("Elementos removidos");
 }
