@@ -2,16 +2,19 @@ const quadrados = document.getElementsByClassName("bloco");
 const tabelaJogo = document.querySelector(".jogo");
 const elementoMensagem = document.querySelector(".mensagem");
 const elementoMensagemSpan = document.querySelector(".mensagem-jogador");
+const elementoMensagemEmpate = document.querySelector(".mensagem-empate");
 const botaoReiniciar = document.querySelector(".botao-reiniciar");
 
 let jogadorAtual = "X";
 let jogador2 = "O";
-let vitoriasJogadorX = 0;
-let vitoriasJogadorO = 0;
+// let vitoriasJogadorX = 0;
+// let vitoriasJogadorO = 0;
 let preenchidos = 0;
 let jogoAcabou = false;
 
 for (let i = 0; i < quadrados.length; i++) quadrados[i].addEventListener("click", adicionarFuncao);
+
+botaoReiniciar.addEventListener("click", reiniciarJogo);
 
 function adicionarFuncao(event) {
     colocarLetra(event.target);
@@ -24,8 +27,6 @@ function colocarLetra(quadrado) {
     }
 
     quadrado.textContent = jogadorAtual;
-
-    console.log(quadrado.textContent)
 
     preenchidos++;
 
@@ -73,9 +74,29 @@ function checarTabuleiro(a, b, c) {
 }
 
 function checarEmpate() {
-    if (preenchidos === 9) alert("Empate!");
+    if (preenchidos === 9) {
+        elementoMensagemEmpate.classList.add("mostrar-na-tela");
+        botaoReiniciar.classList.add("mostrar-na-tela");
+    }
+
 }
 
 function removerEventos() {
     for (let i = 0; i < quadrados.length; i++) quadrados[i].removeEventListener("click", adicionarFuncao);
+}
+
+function reiniciarJogo() {
+    jogadorAtual = "X";
+    preenchidos = 0;
+    jogoAcabou = false;
+
+    botaoReiniciar.classList.remove("mostrar-na-tela");
+    elementoMensagem.classList.remove("mostrar-na-tela");
+    elementoMensagemEmpate.classList.remove("mostrar-na-tela");
+
+    for (let i = 0; i < quadrados.length; i++) { quadrados[i].addEventListener("click", adicionarFuncao);
+        quadrados[i].classList.remove("cor-letra-x");
+        quadrados[i].classList.remove("cor-letra-o");
+        quadrados[i].textContent = "";
+    }
 }

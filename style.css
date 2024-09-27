@@ -70,20 +70,26 @@ main {
     color: var(--cor2);
 }
 
+.mensagem-empate {
+    display: none;
+    color: var(--cor2);
+}
+
 .botao-reiniciar {
     padding: 10px;
     border-radius: 10px;
-    border: 2px solid var(--cor4);
-    background-color: var(--cor2);
-    color: var(--cor4);
     transition: border 0.3s, background-color 0.3s, color 0.3s;
     display: none;
-}
-
-.botao-reiniciar:hover {
+    cursor: pointer;
     border: 2px solid var(--cor2);
     background-color: var(--cor4);
     color: var(--cor2);
+}
+
+.botao-reiniciar:hover {
+    border: 2px solid var(--cor4);
+    background-color: var(--cor2);
+    color: var(--cor4);
 }
 
 .mostrar-na-tela {
