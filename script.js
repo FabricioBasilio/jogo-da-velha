@@ -52,9 +52,15 @@ function checarTabuleiro(a, b, c) {
     if ((quadrados[a].textContent === "X" && quadrados[b].textContent === "X" && quadrados[c].textContent === "X") || (quadrados[a].textContent === "O" && quadrados[b].textContent === "O" && quadrados[c].textContent === "O")) {
         alert("O jogador " + jogadorAtual + " é o vencedor!");
         jogoAcabou = true;
+        removerEventos();
     }
 }
 
 function checarEmpate() {
     if (preenchidos === 9) alert("Empate!");
+}
+
+function removerEventos() {
+    for (let i = 0; i < quadrados.length; i++) quadrados[i].removeEventListener("click", adicionarFuncao);
+    alert("Elementos removidos");
 }
