@@ -12,7 +12,7 @@ function adicionarFuncao(event) {
 }
 
 function colocarLetra(quadrado) {
-    if (quadrado.textContent === "X" || quadrado.textContent === "O") {
+    if (quadrado.textContent) {
         alert("Ja tem uma letra");
         return;
     }
@@ -28,10 +28,17 @@ function colocarLetra(quadrado) {
 
 function checarJogo() {
     checarTabuleiro(0, 1, 2);
+    checarTabuleiro(3, 4, 5);
+    checarTabuleiro(6, 7, 8);
+    checarTabuleiro(0, 4, 8);
+    checarTabuleiro(6, 4, 2);
+    checarTabuleiro(0, 3, 6);
+    checarTabuleiro(1, 4, 7);
+    checarTabuleiro(2, 5, 8);
 }
 
 function checarTabuleiro(a, b, c) {
-    if (quadrados[a].textContent === "X" && quadrados[b].textContent === "X" && quadrados[c].textContent === "X") {
+    if ((quadrados[a].textContent === "X" && quadrados[b].textContent === "X" && quadrados[c].textContent === "X") || (quadrados[a].textContent === "O" && quadrados[b].textContent === "O" && quadrados[c].textContent === "O")) {
         alert("O jogador " + jogadorAtual + " é o vencedor!");
     }
 }
