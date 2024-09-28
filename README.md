@@ -6,4 +6,4 @@ Um dos desafios que tive foi a configuração da tabela do jogo para ser respons
 uma tecnologia do CSS para editar um layout no HTML. Futuramente irei aprimorar o projeto com novas funcionalidades.
 
 ## Acesso ao projeto
-<p>Você pode acessar o projeto [aqui]().</p>
+Você pode acessar o projeto [aqui](https://fabriciobasilio.github.io/jogo-da-velha/).
