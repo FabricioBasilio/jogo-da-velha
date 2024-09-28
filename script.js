@@ -92,6 +92,8 @@ function reiniciarJogo() {
 
     botaoReiniciar.classList.remove("mostrar-na-tela");
     elementoMensagem.classList.remove("mostrar-na-tela");
+    elementoMensagemSpan.classList.remove("cor-letra-x");
+    elementoMensagemSpan.classList.remove("cor-letra-o");
     elementoMensagemEmpate.classList.remove("mostrar-na-tela");
 
     for (let i = 0; i < quadrados.length; i++) { quadrados[i].addEventListener("click", adicionarFuncao);
