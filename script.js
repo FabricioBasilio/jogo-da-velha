@@ -77,6 +77,8 @@ function checarEmpate() {
     if (preenchidos === 9) {
         elementoMensagemEmpate.classList.add("mostrar-na-tela");
         botaoReiniciar.classList.add("mostrar-na-tela");
+        
+        removerEventos();
     }
 
 }
