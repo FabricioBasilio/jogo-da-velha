@@ -94,8 +94,65 @@ main {
     color: var(--cor4);
 }
 
+.botoes-primeiro-jogador {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.botoes-primeiro-jogador > p {
+    color: var(--cor2);
+    font-size: 20px;
+}
+
+.botoes-primeiro-jogador__botoes {
+    display: flex;
+    justify-content: space-around;
+}
+
+.botoes-primeiro-jogador__botoes button {
+    padding: 10px 12px;
+    border-radius: 15px;
+    transition: border 0.3s, background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.botoes-primeiro-jogador__botoes button:nth-child(1) {
+    border: 2px solid var(--cor3);
+    background-color: var(--cor2);
+    color: var(--cor3);
+}
+
+.botoes-primeiro-jogador__botoes button:nth-child(2) {
+    border: 2px solid var(--cor4);
+    background-color: var(--cor2);
+    color: var(--cor4);
+}
+
+.botoes-primeiro-jogador__botoes button:nth-child(1):hover {
+    border: 2px solid var(--cor2);
+    background-color: var(--cor3);
+    color: var(--cor2);
+}
+
+.botoes-primeiro-jogador__botoes button:nth-child(2):hover {
+    border: 2px solid var(--cor2);
+    background-color: var(--cor4);
+    color: var(--cor2);
+}
+
+.mensagem-primeiro-jogador {
+    /* display: none; */
+    font-size: 20px;
+}
+
 .mostrar-na-tela {
     display: block;
+}
+
+.remover-da-tela {
+    display: none;
 }
 
 footer {

@@ -4,15 +4,19 @@ const elementoMensagem = document.querySelector(".mensagem");
 const elementoMensagemSpan = document.querySelector(".mensagem-jogador");
 const elementoMensagemEmpate = document.querySelector(".mensagem-empate");
 const botaoReiniciar = document.querySelector(".botao-reiniciar");
+const secaoBotoesPrimeiroJogador =  document.querySelector(".botoes-primeiro-jogador");
+const botaoSelecionarJogadorX = document.querySelector("#botao-selecionar-jogador-x");
+const botaoSelecionarJogadorO = document.querySelector("#botao-selecionar-jogador-o");
 
-let jogadorAtual = "X";
-let jogador2 = "O";
+
+let jogadorAtual = null;
 // let vitoriasJogadorX = 0;
 // let vitoriasJogadorO = 0;
 let preenchidos = 0;
 let jogoAcabou = false;
 
-for (let i = 0; i < quadrados.length; i++) quadrados[i].addEventListener("click", adicionarFuncao);
+botaoSelecionarJogadorX.addEventListener("click", selecionarJogador);
+botaoSelecionarJogadorO.addEventListener("click", selecionarJogador);
 
 botaoReiniciar.addEventListener("click", reiniciarJogo);
 
@@ -36,7 +40,7 @@ function colocarLetra(quadrado) {
 
     if (jogadorAtual === "X") {
         quadrado.classList.add("cor-letra-x");
-        jogadorAtual = jogador2;
+        jogadorAtual = "O";
     }
     else {
         quadrado.classList.add("cor-letra-o");
@@ -77,7 +81,7 @@ function checarEmpate() {
     if (preenchidos === 9) {
         elementoMensagemEmpate.classList.add("mostrar-na-tela");
         botaoReiniciar.classList.add("mostrar-na-tela");
-        
+
         removerEventos();
     }
 
@@ -88,7 +92,7 @@ function removerEventos() {
 }
 
 function reiniciarJogo() {
-    jogadorAtual = "X";
+    jogadorAtual = null;
     preenchidos = 0;
     jogoAcabou = false;
 
@@ -98,9 +102,24 @@ function reiniciarJogo() {
     elementoMensagemSpan.classList.remove("cor-letra-o");
     elementoMensagemEmpate.classList.remove("mostrar-na-tela");
 
-    for (let i = 0; i < quadrados.length; i++) { quadrados[i].addEventListener("click", adicionarFuncao);
+    for (let i = 0; i < quadrados.length; i++) {
+        quadrados[i].addEventListener("click", adicionarFuncao);
         quadrados[i].classList.remove("cor-letra-x");
         quadrados[i].classList.remove("cor-letra-o");
         quadrados[i].textContent = "";
     }
+}
+
+function adicionarEventos() {
+    for (let i = 0; i < quadrados.length; i++) quadrados[i].addEventListener("click", adicionarFuncao);
+
+}
+
+function selecionarJogador(e) {
+    if (e.target.textContent === "X") jogadorAtual = "X";
+    else jogadorAtual = "O";
+
+    secaoBotoesPrimeiroJogador.classList.add("remover-da-tela");
+
+    adicionarEventos();
 }
