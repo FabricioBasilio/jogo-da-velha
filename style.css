@@ -143,8 +143,9 @@ main {
 }
 
 .mensagem-primeiro-jogador {
-    /* display: none; */
+    display: none;
     font-size: 20px;
+    color: var(--cor2);
 }
 
 .mostrar-na-tela {
@@ -153,6 +154,11 @@ main {
 
 .remover-da-tela {
     display: none;
+    background-color: yellow;
+}
+
+.mostrar-secao-na-tela {
+    display: flex;
 }
 
 footer {

@@ -4,9 +4,11 @@ const elementoMensagem = document.querySelector(".mensagem");
 const elementoMensagemSpan = document.querySelector(".mensagem-jogador");
 const elementoMensagemEmpate = document.querySelector(".mensagem-empate");
 const botaoReiniciar = document.querySelector(".botao-reiniciar");
-const secaoBotoesPrimeiroJogador =  document.querySelector(".botoes-primeiro-jogador");
+const secaoBotoesPrimeiroJogador = document.querySelector(".botoes-primeiro-jogador");
 const botaoSelecionarJogadorX = document.querySelector("#botao-selecionar-jogador-x");
 const botaoSelecionarJogadorO = document.querySelector("#botao-selecionar-jogador-o");
+const elementoMensagemPrimeiroJogador = document.querySelector(".mensagem-primeiro-jogador");
+const elementoMensagemPrimeiroJogadorSpan = document.querySelector(".mensagem-primeiro-jogador-span");
 
 
 let jogadorAtual = null;
@@ -21,6 +23,7 @@ botaoSelecionarJogadorO.addEventListener("click", selecionarJogador);
 botaoReiniciar.addEventListener("click", reiniciarJogo);
 
 function adicionarFuncao(event) {
+    elementoMensagemPrimeiroJogador.classList.remove("mostrar-na-tela");
     colocarLetra(event.target);
 }
 
@@ -101,13 +104,20 @@ function reiniciarJogo() {
     elementoMensagemSpan.classList.remove("cor-letra-x");
     elementoMensagemSpan.classList.remove("cor-letra-o");
     elementoMensagemEmpate.classList.remove("mostrar-na-tela");
+    elementoMensagemPrimeiroJogadorSpan.classList.remove("cor-letra-x");
+    elementoMensagemPrimeiroJogadorSpan.classList.remove("cor-letra-o");
+
+    secaoBotoesPrimeiroJogador.classList.remove("remover-da-tela");
+
+    secaoBotoesPrimeiroJogador.classList.add("mostrar-secao-na-tela");
 
     for (let i = 0; i < quadrados.length; i++) {
-        quadrados[i].addEventListener("click", adicionarFuncao);
         quadrados[i].classList.remove("cor-letra-x");
         quadrados[i].classList.remove("cor-letra-o");
         quadrados[i].textContent = "";
     }
+
+    removerEventos();
 }
 
 function adicionarEventos() {
@@ -116,10 +126,21 @@ function adicionarEventos() {
 }
 
 function selecionarJogador(e) {
-    if (e.target.textContent === "X") jogadorAtual = "X";
-    else jogadorAtual = "O";
+    if (e.target.textContent === "X") {
+        jogadorAtual = "X";
+        elementoMensagemPrimeiroJogadorSpan.textContent = jogadorAtual;
+        elementoMensagemPrimeiroJogadorSpan.classList.add("cor-letra-x");
+    }
+    else {
+        jogadorAtual = "O";
+        elementoMensagemPrimeiroJogadorSpan.textContent = jogadorAtual;
+        elementoMensagemPrimeiroJogadorSpan.classList.add("cor-letra-o");
+    }
 
     secaoBotoesPrimeiroJogador.classList.add("remover-da-tela");
+    secaoBotoesPrimeiroJogador.classList.remove("mostrar-secao-na-tela");
+
+    elementoMensagemPrimeiroJogador.classList.add("mostrar-na-tela");
 
     adicionarEventos();
 }
