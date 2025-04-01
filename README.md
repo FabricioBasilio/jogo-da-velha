@@ -10,7 +10,8 @@ Um jogo que desenvolvi usando as tecnologias HTML, CSS e Javascript sem o uso de
 Desenvolvi um jogo da velha por esse ser um projeto clássico de poder treinar lógica de programação.
 
 Um dos desafios que tive foi a configuração da tabela do jogo para ser responsiva para celulares e outras telas pequenas, principalmente com o uso de grid, 
-uma tecnologia do CSS para editar um layout no HTML. Futuramente irei aprimorar o projeto com novas funcionalidades.
+uma tecnologia do CSS para editar um layout no HTML.
+Entretanto, ela funciona para dois jogadores jogarem presencialmente, futuramente irei aprimorá-la com novas features.
 
 ![jogo-da-velha](https://github.com/user-attachments/assets/43c671e4-4c3e-475f-b49e-816670de2421)
 
